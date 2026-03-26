@@ -18,6 +18,12 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
       keepUnusedDataFor: 5,
     }),
     payOrder: builder.mutation({
+      query: ({ orderId, details }) => ({
+        url: `${ORDERS_URL}/${orderId}/pay`,
+        method: 'PUT',
+        body: details,
+      }),
+    }),
     createRazorpayOrder: builder.mutation({
       query: (orderId) => ({
         url: `${PAYMENTS_URL}/razorpay/order`,
@@ -32,18 +38,10 @@ export const ordersApiSlice = apiSlice.injectEndpoints({
         body: { orderId, razorpay_order_id, razorpay_payment_id, razorpay_signature },
       }),
     }),
-      query: ({ orderId, details }) => ({
-        url: `${ORDERS_URL}/${orderId}/pay`,
-        method: 'PUT',
-        body: details,
-      }),
-    }),
     deliverOrder: builder.mutation({
       query: (orderId) => ({
         url: `${ORDERS_URL}/${orderId}/deliver`,
         method: 'PUT',
-  useCreateRazorpayOrderMutation,
-  useVerifyRazorpayPaymentMutation,
       }),
     }),
     getMyOrders: builder.query({
@@ -85,4 +83,6 @@ export const {
   useGetOrdersQuery,
   useRequestReturnMutation,
   useUpdateReturnStatusMutation,
+  useCreateRazorpayOrderMutation,
+  useVerifyRazorpayPaymentMutation,
 } = ordersApiSlice;
