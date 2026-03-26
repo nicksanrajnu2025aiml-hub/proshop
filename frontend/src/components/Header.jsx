@@ -140,6 +140,7 @@ const Header = () => {
                         <>
                           <div className="pt-2 border-t mt-1"></div>
                           <h3 className="text-sm font-bold px-2 text-indigo-500 uppercase tracking-wider">Admin Control</h3>
+                          <Link to="/admin" className="block px-2 py-1.5 text-xs text-indigo-600 hover:text-indigo-700 hover:bg-indigo-50 rounded transition font-bold">📊 Admin Dashboard</Link>
                           <Link to="/admin/productlist" className="block px-2 py-1.5 text-xs hover:text-indigo-600 hover:bg-indigo-50 rounded transition">Manage Inventory</Link>
                           <Link to="/admin/userlist" className="block px-2 py-1.5 text-xs hover:text-indigo-600 hover:bg-indigo-50 rounded transition">Manage Customers</Link>
                           <Link to="/admin/returns" className="block px-2 py-1.5 text-xs hover:text-indigo-600 hover:bg-indigo-50 rounded transition">Return Center</Link>
